@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../../models/activity.model.dart';
+import '../../../models/activity_model.dart';
 import './activity_card.dart';
 
 class ActivityList extends StatelessWidget {
   final List<Activity> activities;
-  final List<String> selectedActivities;
+  final List<Activity> selectedActivities;
   final Function toggleActivity;
 
-  ActivityList({this.activities, this.selectedActivities, this.toggleActivity});
+  const ActivityList({this.activities, this.selectedActivities, this.toggleActivity});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,9 @@ class ActivityList extends StatelessWidget {
           .map(
             (activity) => ActivityCard(
               activity: activity,
-              isSelected: selectedActivities.contains(activity.id),
+              isSelected: selectedActivities.contains(activity),
               toggleActivity: () {
-                toggleActivity(activity.id);
+                toggleActivity(activity);
               },
             ),
           )
